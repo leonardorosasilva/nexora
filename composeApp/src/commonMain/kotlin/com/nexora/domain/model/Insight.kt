@@ -5,4 +5,10 @@ data class Insight(
     val title: String,
     val content: String,
     val tags: List<String>
+    val status: String,
 )
+
+enum class InsightStatusEnum {
+    PUBLICO,
+    PRIVADO,
+}
