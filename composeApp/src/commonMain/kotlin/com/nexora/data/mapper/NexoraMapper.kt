@@ -1,6 +1,5 @@
 package com.nexora.data.mapper
 
-import androidx.compose.ui.graphics.colorspace.ColorSpaces.match
 import com.nexora.data.local.entity.InsightEntity
 import com.nexora.data.local.entity.MatchEntity
 import com.nexora.data.local.entity.MeetingEntity
@@ -59,14 +58,14 @@ fun Match.toEntity(): MatchEntity {
         id = id, 
         user1Id = user1Id, 
         user2Id = user2Id, 
-        status = MatchStatusEnum.values()
+        status = status.name
     )
 }
 
 fun MeetingEntity.toDomain(): Meeting {
     return Meeting(
         id = id,
-        matchId = matchId,
+        match = matchId,
         title = title,
         description = description,
         date = date,
@@ -93,7 +92,7 @@ fun InsightEntity.toDomain(): Insight {
         title = title, 
         content = content, 
         tags = tags, 
-        status = status.name
+        status = status
     )
 }
 
@@ -103,13 +102,13 @@ fun Insight.toEntity(): InsightEntity {
         title = title, 
         content = content, 
         tags = tags, 
-        status = status.name
+        status = status
     )
 }
 
 fun MessageEntity.toDomain(): Message {
     return Message(
-        messageId = messageId, 
+        messageId = id, 
         matchId = matchId, 
         senderId = senderId, 
         receiverId = receiverId, 
@@ -124,6 +123,7 @@ fun Message.toEntity(): MessageEntity {
         matchId = matchId, 
         senderId = senderId, 
         receiverId = receiverId, 
-        text = text
+        text = text,
+        timestamp = timestamp
     )
 }
