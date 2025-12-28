@@ -6,22 +6,22 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.nexora.domain.model.Match
+import com.nexora.data.local.entity.MatchEntity
 
 @Dao
 interface MatchDao {
     @Query("SELECT * FROM matches WHERE id = :id")
-    suspend fun getMatchById(id: String): Match?
+    suspend fun getMatchById(id: String): MatchEntity?
 
-    @Query("SELECT * FROM matches WHERE userId = :userId")
-    suspend fun getMatchesByUserId(userId: String): List<Match>
+    @Query("SELECT * FROM matches WHERE user1Id = :userId OR user2Id = :userId")
+    suspend fun getMatchesByUserId(userId: String): List<MatchEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMatch(match: Match)
+    suspend fun insertMatch(match: MatchEntity)
 
     @Update
-    suspend fun updateMatch(match: Match)
+    suspend fun updateMatch(match: MatchEntity)
 
     @Delete
-    suspend fun deleteMatch(match: Match)
+    suspend fun deleteMatch(match: MatchEntity)
 }
