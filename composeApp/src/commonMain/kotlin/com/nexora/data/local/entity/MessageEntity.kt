@@ -9,5 +9,6 @@ data class MessageEntity(
     val matchId: String,
     val senderId: String,
     val receiverId: String,
-    val text: String
+    val text: String,
+    val timestamp: Long = 0L
 )

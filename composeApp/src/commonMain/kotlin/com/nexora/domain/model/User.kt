@@ -1,12 +1,7 @@
 package com.nexora.domain.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.nexora.data.local.converters.Converters
-
 data class User(
-    @PrimaryKey val id: String,
+    val id: String,
     val name: String,
     val email: String,
     val username: String,
