@@ -8,7 +8,7 @@ data class MatchEntity(
     @PrimaryKey val id: String,
     val user1Id: String,
     val user2Id: String,
-    val status: MatchStatusEnumEntity,
+    val status: String
 )
 
 enum class MatchStatusEnumEntity {

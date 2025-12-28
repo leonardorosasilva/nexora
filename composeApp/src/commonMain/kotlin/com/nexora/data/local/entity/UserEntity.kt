@@ -2,8 +2,11 @@ package com.nexora.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.nexora.data.local.converters.Converters
 
 @Entity(tableName = "users")
+@TypeConverters(Converters::class)
 data class UserEntity(
     @PrimaryKey val id: String,
     val username: String,
