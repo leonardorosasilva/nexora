@@ -1,3 +1,7 @@
+package com.nexora.domain.repository
+
+import com.nexora.domain.model.Meeting
+
 interface MeetingRepository {
     suspend fun getMeetingById(id: String): Meeting?
     suspend fun getMeetingsByMatchId(matchId: String): List<Meeting>

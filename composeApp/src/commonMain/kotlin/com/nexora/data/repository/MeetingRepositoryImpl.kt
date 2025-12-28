@@ -1,15 +1,13 @@
-import javax.inject.Inject
+package com.nexora.data.repository
+
 import com.nexora.data.local.dao.MeetingDao
 import com.nexora.domain.model.Meeting
 import com.nexora.domain.repository.MeetingRepository
 import com.nexora.data.mapper.toDomain
 import com.nexora.data.mapper.toEntity
-import com.nexora.data.mapper.MeetingMapper
 
-
-class MeetingRepositoryImpl @Inject constructor(
-    private val meetingDao: MeetingDao,
-    private val meetingMapper: MeetingMapper
+class MeetingRepositoryImpl(
+    private val meetingDao: MeetingDao
 ) : MeetingRepository {
     override suspend fun getMeetingById(id: String): Meeting? {
         return meetingDao.getMeetingById(id)?.toDomain()

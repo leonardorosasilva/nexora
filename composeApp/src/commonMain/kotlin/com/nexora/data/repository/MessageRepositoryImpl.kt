@@ -1,13 +1,13 @@
-import javax.inject.Inject
+package com.nexora.data.repository
+
 import com.nexora.data.local.dao.MessageDao
 import com.nexora.domain.model.Message
+import com.nexora.domain.repository.MessageRepository
 import com.nexora.data.mapper.toDomain
 import com.nexora.data.mapper.toEntity
-import com.nexora.data.mapper.MessageMapper
 
-class MessageRepositoryImpl @Inject constructor(
-    private val messageDao: MessageDao,
-    private val messageMapper: MessageMapper
+class MessageRepositoryImpl(
+    private val messageDao: MessageDao
 ) : MessageRepository {
     override suspend fun getMessagesByMatchId(matchId: String): List<Message> {
         return messageDao.getMessagesByMatchId(matchId).map { it.toDomain() }

@@ -1,15 +1,13 @@
-
-
-import javax.inject.Inject
+package com.nexora.data.repository
 
 import com.nexora.data.local.dao.UserDao
 import com.nexora.domain.model.User
+import com.nexora.domain.repository.UserRepository
 import com.nexora.data.mapper.toDomain
 import com.nexora.data.mapper.toEntity
 
-class UserRepositoryImpl @Inject constructor(
-    private val userDao: UserDao,
-    private val userMapper: UserMapper
+class UserRepositoryImpl(
+    private val userDao: UserDao
 ) : UserRepository {
 
     override suspend fun getUserById(id: String): User? {

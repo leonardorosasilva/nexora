@@ -1,6 +1,13 @@
-class MatchRepositoryImpl @Inject constructor(
-    private val matchDao: MatchDao,
-    private val matchMapper: MatchMapper
+package com.nexora.data.repository
+
+import com.nexora.data.local.dao.MatchDao
+import com.nexora.domain.model.Match
+import com.nexora.domain.repository.MatchRepository
+import com.nexora.data.mapper.toDomain
+import com.nexora.data.mapper.toEntity
+
+class MatchRepositoryImpl(
+    private val matchDao: MatchDao
 ) : MatchRepository {
 
     override suspend fun getMatchById(id: String): Match? {
@@ -13,5 +20,13 @@ class MatchRepositoryImpl @Inject constructor(
 
     override suspend fun insertMatch(match: Match) {
         matchDao.insertMatch(match.toEntity())
+    }
+
+    override suspend fun updateMatch(match: Match) {
+        matchDao.updateMatch(match.toEntity())
+    }
+
+    override suspend fun deleteMatch(match: Match) {
+        matchDao.deleteMatch(match.toEntity())
     }
 }
