@@ -157,11 +157,6 @@ Todas as operações de banco de dados são realizadas através dos DAOs corresp
 - [ ] Tratamento de erros
 - [ ] Loading states e error handling
 
-## 🔧 Correções Realizadas
-
-- ✅ Corrigido nome do arquivo `MessegeDao.kt` → `MessageDao.kt`
-- ✅ Corrigido nome do arquivo `InsighEntity.kt` → `InsightEntity.kt`
-
 ## 📚 Documentação Adicional
 
 - [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
@@ -170,9 +165,3 @@ Todas as operações de banco de dados são realizadas através dos DAOs corresp
 - [Koin](https://insert-koin.io/)
 - [Voyager](https://voyager.adriel.cafe/)
 
-## 📄 Licença
-
-
----
-
-**Desenvolvido com ❤️ usando Kotlin Multiplatform e Compose Multiplatform**
